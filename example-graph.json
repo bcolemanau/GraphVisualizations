@@ -1,0 +1,303 @@
+{
+  "entities": [
+    {
+      "id": "company_1",
+      "type": "Company",
+      "name": "Solara Development Partners",
+      "properties": {
+        "founded": 2018,
+        "employees": 45,
+        "revenue": "28M",
+        "location": "Austin, Texas",
+        "states": ["Texas", "Oklahoma", "New Mexico"],
+        "project_count": 42,
+        "project_size_range": "5-50 MW"
+      }
+    },
+    {
+      "id": "team_development",
+      "type": "Team",
+      "name": "Development Team",
+      "properties": {
+        "size": 10,
+        "roles": ["Project Developers", "Permitting Specialists"]
+      }
+    },
+    {
+      "id": "team_interconnection",
+      "type": "Team",
+      "name": "Interconnection Team",
+      "properties": {
+        "size": 5,
+        "primary_role": "Interconnection Management"
+      }
+    },
+    {
+      "id": "team_finance",
+      "type": "Team",
+      "name": "Finance Team",
+      "properties": {
+        "size": 3,
+        "primary_role": "Financial Modeling and Analysis"
+      }
+    },
+    {
+      "id": "team_construction",
+      "type": "Team",
+      "name": "Construction Team",
+      "properties": {
+        "size": 8,
+        "primary_role": "Construction Project Management"
+      }
+    },
+    {
+      "id": "team_asset_mgmt",
+      "type": "Team",
+      "name": "Asset Management Team",
+      "properties": {
+        "size": 6,
+        "primary_role": "Operating Project Management"
+      }
+    },
+    {
+      "id": "tool_sharepoint",
+      "type": "Tool",
+      "name": "Microsoft SharePoint",
+      "properties": {
+        "purpose": "Document Management",
+        "issues": ["Inconsistent folder structures", "No naming conventions"]
+      }
+    },
+    {
+      "id": "tool_excel",
+      "type": "Tool",
+      "name": "Microsoft Excel",
+      "properties": {
+        "purpose": "Project Tracking and Financial Modeling",
+        "complexity": "47-column master tracker, 15-20 tab financial models"
+      }
+    },
+    {
+      "id": "tool_powertrack",
+      "type": "Tool",
+      "name": "PowerTrack by AlsoEnergy",
+      "properties": {
+        "purpose": "Asset Monitoring",
+        "vendor": "AlsoEnergy"
+      }
+    },
+    {
+      "id": "pain_manual_processes",
+      "type": "PainPoint",
+      "name": "Manual Process Overload",
+      "properties": {
+        "description": "Everything feels manual, team drowning in documents",
+        "source": "CEO"
+      }
+    },
+    {
+      "id": "pain_interconnection_penalties",
+      "type": "PainPoint",
+      "name": "Interconnection Deadline Penalties",
+      "properties": {
+        "cost": "200K annually",
+        "frequency": "Twice this year",
+        "impact": "Penalties and delays"
+      }
+    },
+    {
+      "id": "pain_document_search",
+      "type": "PainPoint",
+      "name": "Document Retrieval Inefficiency",
+      "properties": {
+        "volume": "50-200 documents per project",
+        "method": "Manual searching across inconsistent folders"
+      }
+    },
+    {
+      "id": "pain_version_conflicts",
+      "type": "PainPoint",
+      "name": "Data Fragmentation",
+      "properties": {
+        "cause": "Multiple departmental spreadsheets",
+        "impact": "No single source of truth, version conflicts"
+      }
+    },
+    {
+      "id": "opportunity_interconnection_automation",
+      "type": "Opportunity",
+      "name": "Interconnection Deadline Automation",
+      "properties": {
+        "potential_savings": "200K annually",
+        "approach": "Automated email parsing and deadline tracking"
+      }
+    },
+    {
+      "id": "opportunity_document_intelligence",
+      "type": "Opportunity",
+      "name": "Document Intelligence System",
+      "properties": {
+        "scope": "2100-8400 total documents",
+        "approach": "AI-powered extraction and search"
+      }
+    },
+    {
+      "id": "opportunity_financial_automation",
+      "type": "Opportunity",
+      "name": "Financial Model Automation",
+      "properties": {
+        "current_time": "Days to update assumptions",
+        "target_time": "Hours with automation"
+      }
+    },
+    {
+      "id": "process_project_tracking",
+      "type": "Process",
+      "name": "Project Status Tracking",
+      "properties": {
+        "current_method": "47-column Excel file",
+        "frequency": "Weekly status meetings",
+        "inefficiency": "Manual spreadsheet reading"
+      }
+    },
+    {
+      "id": "process_asset_monitoring",
+      "type": "Process",
+      "name": "Asset Performance Monitoring",
+      "properties": {
+        "current_method": "Manual comparison of actual vs expected",
+        "scope": "22 operating projects",
+        "tools_required": "Weather data, inverter logs, maintenance records"
+      }
+    },
+    {
+      "id": "process_financial_modeling",
+      "type": "Process",
+      "name": "Financial Modeling and Reporting",
+      "properties": {
+        "model_complexity": "15-20 tabs per project",
+        "update_time": "Days for assumption changes",
+        "reporting_method": "Manual copy-paste to PowerPoint"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "source": "company_1",
+      "target": "team_development",
+      "type": "HAS_TEAM",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "team_interconnection",
+      "type": "HAS_TEAM",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "team_finance",
+      "type": "HAS_TEAM",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "team_construction",
+      "type": "HAS_TEAM",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "team_asset_mgmt",
+      "type": "HAS_TEAM",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "tool_sharepoint",
+      "type": "USES_TOOL",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "tool_excel",
+      "type": "USES_TOOL",
+      "properties": {}
+    },
+    {
+      "source": "team_asset_mgmt",
+      "target": "tool_powertrack",
+      "type": "USES_TOOL",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "pain_manual_processes",
+      "type": "HAS_PAIN_POINT",
+      "properties": {}
+    },
+    {
+      "source": "team_interconnection",
+      "target": "pain_interconnection_penalties",
+      "type": "HAS_PAIN_POINT",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "pain_document_search",
+      "type": "HAS_PAIN_POINT",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "pain_version_conflicts",
+      "type": "HAS_PAIN_POINT",
+      "properties": {}
+    },
+    {
+      "source": "pain_interconnection_penalties",
+      "target": "opportunity_interconnection_automation",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "source": "pain_document_search",
+      "target": "opportunity_document_intelligence",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "source": "team_finance",
+      "target": "opportunity_financial_automation",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "source": "company_1",
+      "target": "process_project_tracking",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_asset_mgmt",
+      "target": "process_asset_monitoring",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_finance",
+      "target": "process_financial_modeling",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "opportunity_interconnection_automation",
+      "target": "company_1",
+      "type": "ESTIMATED_VALUE",
+      "properties": {
+        "value": "200K annually"
+      }
+    }
+  ]
+}
+

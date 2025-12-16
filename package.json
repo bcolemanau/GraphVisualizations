@@ -1,0 +1,21 @@
+{
+  "name": "graph-visualizations-mcp",
+  "version": "1.0.0",
+  "description": "Graph visualization service with MCP integration",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "mcp": "node mcp-server.js"
+  },
+  "keywords": ["graph", "visualization", "mcp", "d3"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
+

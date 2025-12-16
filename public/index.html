@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graph Visualizations</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌐 Graph Visualizations</h1>
+            <p class="subtitle">Interactive semantic model graph visualizations</p>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="input-section">
+                    <h2>Graph Data</h2>
+                    <textarea id="graphInput" placeholder="Paste your graph JSON here..."></textarea>
+                    <button id="loadExample" class="btn-secondary">Load Example</button>
+                </div>
+
+                <div class="viz-selector">
+                    <h2>Visualization Type</h2>
+                    <div class="viz-options">
+                        <label class="viz-option">
+                            <input type="radio" name="vizType" value="force-directed" checked>
+                            <div class="option-content">
+                                <span class="icon">🔗</span>
+                                <div>
+                                    <strong>Force-Directed</strong>
+                                    <small>Network with physics</small>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="viz-option">
+                            <input type="radio" name="vizType" value="chord">
+                            <div class="option-content">
+                                <span class="icon">⭕</span>
+                                <div>
+                                    <strong>Chord Diagram</strong>
+                                    <small>Circular relationships</small>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="viz-option">
+                            <input type="radio" name="vizType" value="heatmap">
+                            <div class="option-content">
+                                <span class="icon">🔥</span>
+                                <div>
+                                    <strong>Heat Map</strong>
+                                    <small>Relationship matrix</small>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="viz-option">
+                            <input type="radio" name="vizType" value="tree">
+                            <div class="option-content">
+                                <span class="icon">🌲</span>
+                                <div>
+                                    <strong>Hierarchical Tree</strong>
+                                    <small>Tree structure</small>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="visualizeBtn" class="btn-primary">Visualize</button>
+
+                <div class="stats" id="stats"></div>
+            </aside>
+
+            <main class="visualization-container">
+                <div class="viz-header">
+                    <h2 id="vizTitle">Visualization</h2>
+                    <div class="controls">
+                        <button id="resetZoom" class="btn-control">Reset View</button>
+                        <button id="exportSvg" class="btn-control">Export SVG</button>
+                    </div>
+                </div>
+                <div id="visualization" class="visualization"></div>
+                <div id="tooltip" class="tooltip"></div>
+            </main>
+        </div>
+    </div>
+
+    <script src="force-directed.js"></script>
+    <script src="chord.js"></script>
+    <script src="heatmap.js"></script>
+    <script src="tree.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+

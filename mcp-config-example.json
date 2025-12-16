@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "graph-visualizations": {
+      "command": "node",
+      "args": ["C:/Users/benad/Downloads/User and agent debate/GraphVisualizations/mcp-server.js"],
+      "env": {
+        "PORT": "3000"
+      }
+    }
+  }
+}
+

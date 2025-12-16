@@ -1,0 +1,383 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #8b5cf6;
+    --background: #0f172a;
+    --surface: #1e293b;
+    --surface-light: #334155;
+    --text: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --border: #475569;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    max-width: 1920px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.sidebar {
+    width: 350px;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+textarea {
+    width: 100%;
+    min-height: 200px;
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    color: var(--text);
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.btn-primary, .btn-secondary, .btn-control {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-secondary {
+    background: var(--surface-light);
+    color: var(--text);
+    width: 100%;
+}
+
+.btn-secondary:hover {
+    background: var(--border);
+}
+
+.btn-control {
+    background: var(--surface-light);
+    color: var(--text);
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.btn-control:hover {
+    background: var(--border);
+}
+
+.viz-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.viz-option {
+    background: var(--background);
+    border: 2px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+}
+
+.viz-option:hover {
+    border-color: var(--primary);
+    background: var(--surface-light);
+}
+
+.viz-option input[type="radio"] {
+    display: none;
+}
+
+.viz-option input[type="radio"]:checked + .option-content {
+    color: var(--primary);
+}
+
+.viz-option input[type="radio"]:checked ~ .option-content::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--primary);
+    border-radius: 8px 0 0 8px;
+}
+
+.option-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+}
+
+.option-content .icon {
+    font-size: 1.5rem;
+}
+
+.option-content strong {
+    display: block;
+    font-size: 1rem;
+}
+
+.option-content small {
+    display: block;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.visualization-container {
+    flex: 1;
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    min-height: 600px;
+}
+
+.viz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border);
+}
+
+.viz-header h2 {
+    font-size: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.visualization {
+    flex: 1;
+    position: relative;
+    background: var(--background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.visualization svg {
+    width: 100%;
+    height: 100%;
+}
+
+.stats {
+    background: var(--background);
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.stats h3 {
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary);
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.stat-item:last-child {
+    border-bottom: none;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    color: var(--text);
+    font-weight: 600;
+}
+
+.tooltip {
+    position: absolute;
+    background: rgba(15, 23, 42, 0.95);
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    padding: 1rem;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+    z-index: 1000;
+    max-width: 300px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tooltip.visible {
+    opacity: 1;
+}
+
+.tooltip h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tooltip p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.tooltip .property {
+    color: var(--text-secondary);
+}
+
+.tooltip .value {
+    color: var(--text);
+}
+
+/* Node styles for force-directed graph */
+.node circle {
+    stroke: #fff;
+    stroke-width: 2px;
+    cursor: pointer;
+    transition: r 0.3s;
+}
+
+.node:hover circle {
+    stroke-width: 3px;
+}
+
+.node text {
+    font-size: 12px;
+    fill: var(--text);
+    pointer-events: none;
+    text-anchor: middle;
+}
+
+.link {
+    stroke: var(--border);
+    stroke-opacity: 0.6;
+    stroke-width: 2px;
+    fill: none;
+}
+
+.link-label {
+    font-size: 10px;
+    fill: var(--text-secondary);
+    pointer-events: none;
+}
+
+/* Scrollbar styling */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: var(--background);
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: var(--surface-light);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        max-height: none;
+    }
+
+    .visualization-container {
+        min-height: 500px;
+    }
+}
+
