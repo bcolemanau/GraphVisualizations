@@ -67,8 +67,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             },
             visualizationType: {
               type: "string",
-              enum: ["force-directed", "chord", "heatmap", "tree"],
-              description: "Type of visualization to create",
+              enum: ["force-directed", "chord", "heatmap", "tree", "swimlane", "sankey"],
+              description: "Type of visualization to create. Options: force-directed (network), chord (circular), heatmap (matrix), tree (hierarchical), swimlane (process flows), sankey (flow volume)",
               default: "force-directed"
             },
             title: {
@@ -113,8 +113,8 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
             },
             visualizationType: {
               type: "string",
-              enum: ["force-directed", "chord", "heatmap", "tree"],
-              description: "Update the visualization type"
+              enum: ["force-directed", "chord", "heatmap", "tree", "swimlane", "sankey"],
+              description: "Update the visualization type. Options: force-directed (network), chord (circular), heatmap (matrix), tree (hierarchical), swimlane (process flows), sankey (flow volume)"
             },
             title: {
               type: "string",
@@ -222,6 +222,18 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
                 name: "Hierarchical Tree",
                 description: "Tree layout showing hierarchical relationships. Best for organizational structures.",
                 bestFor: "Hierarchies, organizational structures, parent-child relationships"
+              },
+              {
+                type: "swimlane",
+                name: "Swimlane Diagram",
+                description: "Process flow visualization with horizontal lanes for different teams/roles. Shows cross-functional workflows and handoffs.",
+                bestFor: "Process flows across teams, role-based workflows, responsibility boundaries, cross-team processes"
+              },
+              {
+                type: "sankey",
+                name: "Sankey Flow Diagram",
+                description: "Flow visualization where connection width represents volume/importance. Excellent for identifying bottlenecks.",
+                bestFor: "Process chains, resource flows, value streams, bottleneck identification, flow volume analysis"
               }
             ]
           }, null, 2)
