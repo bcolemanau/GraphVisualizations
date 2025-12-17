@@ -200,3 +200,4 @@ function renderHeatmap(graph, container) {
     container.appendChild(svg.node());
 }
 
+

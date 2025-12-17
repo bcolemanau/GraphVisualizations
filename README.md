@@ -22,6 +22,16 @@ A powerful graph visualization service that provides multiple interactive visual
    - Best for: Organizational structures, parent-child relationships
    - Features: Collapsible nodes, depth visualization, clear hierarchy
 
+5. **Swimlane Diagram** ⭐ NEW - Cross-functional process flows
+   - Best for: Process flows across teams, role-based workflows
+   - Features: Horizontal lanes per team, sequential flow, clear ownership
+   - Ideal for: Cross-team processes, responsibility boundaries
+
+6. **Sankey Flow Diagram** ⭐ NEW - Resource and process flow visualization
+   - Best for: Flow analysis, volume visualization, value streams
+   - Features: Width-based flow representation, bottleneck identification
+   - Ideal for: Process chains, resource allocation, flow patterns
+
 ### 🤖 MCP Integration
 
 The service exposes two MCP tools for agent integration:
@@ -199,11 +209,23 @@ returns both URLs for comparison
 
 ## Features & Interactions
 
+### 🔍 Advanced Filtering & Querying ⭐ NEW
+
+- **Multi-Dimensional Filters**: Filter by entity types, relationship types, and properties
+- **Smart Search**: Real-time search with autocomplete across entities
+- **Focus Mode**: Click any node to focus on its neighborhood (1-3 hop depth)
+- **Quick View Presets**: Pre-configured filter sets for common views
+  - Process Flows Only
+  - Team Structure
+  - Pain Points & Solutions
+- **Real-time Results**: Live count updates and instant visualization refresh
+
 ### Interactive Controls
 
 - **Zoom & Pan**: Mouse wheel to zoom, click and drag to pan (force-directed, tree)
 - **Node Dragging**: Drag nodes to reposition (force-directed)
 - **Hover Details**: Hover over nodes and edges for detailed information
+- **Focus on Click**: Click nodes to activate focus mode
 - **Reset View**: Reset zoom and pan to default
 - **Export SVG**: Download visualization as SVG file
 
@@ -297,12 +319,22 @@ Edit `public/styles.css` to customize:
 
 ## Example Graphs
 
-The application includes a comprehensive example graph showing:
+The application includes comprehensive example graphs:
+
+**example-graph.json** - Company structure showing:
 - Company organizational structure
 - Tools and technology stack
 - Pain points and opportunities
 - Processes and workflows
 - Cross-functional relationships
+
+**example-process-flow.json** ⭐ NEW - Process flow showing:
+- Sequential project lifecycle
+- Cross-team handoffs
+- Decision points
+- Process dependencies
+- Bottlenecks and pain points
+- Workflow automation opportunities
 
 ## License
 
@@ -312,12 +344,24 @@ MIT
 
 For issues, questions, or contributions, please create an issue in the repository.
 
+## Recent Enhancements ✅
+
+- [x] Graph filtering and search
+- [x] Focus mode with depth control
+- [x] Swimlane diagram for process flows
+- [x] Sankey flow diagram for volume analysis
+- [x] Multi-dimensional filter panel
+- [x] Quick view presets
+- [x] Process flow example graph
+
 ## Future Enhancements
 
 - [ ] Graph persistence with database
 - [ ] Real-time collaborative editing
 - [ ] Export to multiple formats (PNG, PDF)
-- [ ] Graph filtering and search
+- [ ] Path finder tool (show paths between nodes)
+- [ ] Visual query builder
+- [ ] Timeline/Gantt process view
 - [ ] Custom color schemes
 - [ ] Animation controls
 - [ ] Graph comparison view

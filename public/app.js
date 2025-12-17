@@ -304,6 +304,10 @@ const exampleGraph = {
 
 let currentGraph = null;
 let currentVizType = 'force-directed';
+let filterPanel = null;
+
+// Initialize global filter engine
+window.filterEngine = new FilterEngine();
 
 // DOM elements
 const graphInput = document.getElementById('graphInput');
@@ -336,6 +340,23 @@ visualizeBtn.addEventListener('click', () => {
         const graphData = JSON.parse(graphInput.value);
         currentGraph = graphData;
         currentVizType = document.querySelector('input[name="vizType"]:checked').value;
+        
+        // Set up filter engine with new graph
+        window.filterEngine.setGraph(graphData);
+        
+        // Initialize filter panel
+        if (!filterPanel) {
+            filterPanel = new FilterPanel('filterPanel', window.filterEngine);
+            
+            // Listen for filter changes and re-render
+            window.filterEngine.onChange((filteredGraph) => {
+                renderVisualization(filteredGraph, currentVizType);
+            });
+        } else {
+            filterPanel.render();
+            filterPanel.attachEventListeners();
+        }
+        
         renderVisualization(graphData, currentVizType);
         updateStats(graphData);
     } catch (error) {
@@ -369,7 +390,10 @@ document.querySelectorAll('input[name="vizType"]').forEach(radio => {
     radio.addEventListener('change', (e) => {
         if (currentGraph) {
             currentVizType = e.target.value;
-            renderVisualization(currentGraph, currentVizType);
+            // Get filtered graph if filters are active
+            const graphToRender = window.filterEngine.originalGraph ? 
+                window.filterEngine.applyFilters() : currentGraph;
+            renderVisualization(graphToRender, currentVizType);
         }
     });
 });
@@ -397,6 +421,17 @@ function renderVisualization(graph, type) {
     const container = document.getElementById('visualization');
     container.innerHTML = '';
 
+    // Update title based on visualization type
+    const titles = {
+        'force-directed': 'Force-Directed Network',
+        'chord': 'Chord Diagram',
+        'heatmap': 'Heat Map',
+        'tree': 'Hierarchical Tree',
+        'swimlane': 'Swimlane Diagram',
+        'sankey': 'Sankey Flow Diagram'
+    };
+    vizTitle.textContent = titles[type] || 'Visualization';
+
     switch (type) {
         case 'force-directed':
             renderForceDirected(graph, container);
@@ -409,6 +444,12 @@ function renderVisualization(graph, type) {
             break;
         case 'tree':
             renderTree(graph, container);
+            break;
+        case 'swimlane':
+            renderSwimlane(graph, container);
+            break;
+        case 'sankey':
+            renderSankey(graph, container);
             break;
     }
 }
@@ -463,4 +504,5 @@ function hideTooltip() {
     const tooltip = document.getElementById('tooltip');
     tooltip.classList.remove('visible');
 }
+
 

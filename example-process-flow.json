@@ -1,0 +1,414 @@
+{
+  "entities": [
+    {
+      "id": "start_event",
+      "type": "Event",
+      "name": "Project Kickoff",
+      "properties": {
+        "event_type": "start",
+        "sequence_order": 0
+      }
+    },
+    {
+      "id": "process_initiation",
+      "type": "Process",
+      "name": "Project Initiation",
+      "properties": {
+        "sequence_order": 1,
+        "duration_days": 5,
+        "owner_team": "team_development",
+        "priority": "high",
+        "status": "active"
+      }
+    },
+    {
+      "id": "process_site_analysis",
+      "type": "Process",
+      "name": "Site Analysis & Assessment",
+      "properties": {
+        "sequence_order": 2,
+        "duration_days": 14,
+        "owner_team": "team_development",
+        "priority": "high",
+        "status": "active"
+      }
+    },
+    {
+      "id": "process_feasibility",
+      "type": "Process",
+      "name": "Feasibility Study",
+      "properties": {
+        "sequence_order": 3,
+        "duration_days": 21,
+        "owner_team": "team_finance",
+        "priority": "high",
+        "status": "active"
+      }
+    },
+    {
+      "id": "decision_go_nogo",
+      "type": "Decision",
+      "name": "Go/No-Go Decision",
+      "properties": {
+        "sequence_order": 4,
+        "decision_criteria": "ROI > 15%, Site viability confirmed"
+      }
+    },
+    {
+      "id": "process_interconnection_app",
+      "type": "Process",
+      "name": "Interconnection Application",
+      "properties": {
+        "sequence_order": 5,
+        "duration_days": 180,
+        "owner_team": "team_interconnection",
+        "priority": "critical",
+        "status": "active",
+        "bottleneck_risk": "high"
+      }
+    },
+    {
+      "id": "process_permitting",
+      "type": "Process",
+      "name": "Permitting & Approvals",
+      "properties": {
+        "sequence_order": 5,
+        "duration_days": 120,
+        "owner_team": "team_development",
+        "priority": "critical",
+        "status": "active"
+      }
+    },
+    {
+      "id": "process_design",
+      "type": "Process",
+      "name": "Engineering Design",
+      "properties": {
+        "sequence_order": 6,
+        "duration_days": 45,
+        "owner_team": "team_development",
+        "priority": "high",
+        "status": "active"
+      }
+    },
+    {
+      "id": "process_procurement",
+      "type": "Process",
+      "name": "Equipment Procurement",
+      "properties": {
+        "sequence_order": 7,
+        "duration_days": 90,
+        "owner_team": "team_construction",
+        "priority": "high",
+        "status": "active"
+      }
+    },
+    {
+      "id": "decision_ready_to_build",
+      "type": "Decision",
+      "name": "Ready to Build?",
+      "properties": {
+        "sequence_order": 8,
+        "decision_criteria": "All permits approved, Interconnection agreement signed"
+      }
+    },
+    {
+      "id": "process_construction",
+      "type": "Process",
+      "name": "Construction",
+      "properties": {
+        "sequence_order": 9,
+        "duration_days": 120,
+        "owner_team": "team_construction",
+        "priority": "critical",
+        "status": "active"
+      }
+    },
+    {
+      "id": "process_commissioning",
+      "type": "Process",
+      "name": "Testing & Commissioning",
+      "properties": {
+        "sequence_order": 10,
+        "duration_days": 30,
+        "owner_team": "team_construction",
+        "priority": "high",
+        "status": "active"
+      }
+    },
+    {
+      "id": "process_cod",
+      "type": "Process",
+      "name": "Commercial Operation",
+      "properties": {
+        "sequence_order": 11,
+        "duration_days": 1,
+        "owner_team": "team_asset_mgmt",
+        "priority": "critical",
+        "status": "active"
+      }
+    },
+    {
+      "id": "end_event",
+      "type": "Event",
+      "name": "Project Operational",
+      "properties": {
+        "event_type": "end",
+        "sequence_order": 12
+      }
+    },
+    {
+      "id": "team_development",
+      "type": "Team",
+      "name": "Development Team",
+      "properties": {
+        "size": 10,
+        "roles": ["Project Developers", "Permitting Specialists"]
+      }
+    },
+    {
+      "id": "team_interconnection",
+      "type": "Team",
+      "name": "Interconnection Team",
+      "properties": {
+        "size": 5,
+        "primary_role": "Interconnection Management"
+      }
+    },
+    {
+      "id": "team_finance",
+      "type": "Team",
+      "name": "Finance Team",
+      "properties": {
+        "size": 3,
+        "primary_role": "Financial Modeling and Analysis"
+      }
+    },
+    {
+      "id": "team_construction",
+      "type": "Team",
+      "name": "Construction Team",
+      "properties": {
+        "size": 8,
+        "primary_role": "Construction Project Management"
+      }
+    },
+    {
+      "id": "team_asset_mgmt",
+      "type": "Team",
+      "name": "Asset Management Team",
+      "properties": {
+        "size": 6,
+        "primary_role": "Operating Project Management"
+      }
+    },
+    {
+      "id": "pain_interconnection_delays",
+      "type": "PainPoint",
+      "name": "Interconnection Queue Delays",
+      "properties": {
+        "impact": "6-12 month delays common",
+        "cost": "200K annually in penalties"
+      }
+    },
+    {
+      "id": "pain_permit_tracking",
+      "type": "PainPoint",
+      "name": "Manual Permit Tracking",
+      "properties": {
+        "impact": "Multiple permits per project, manual spreadsheet tracking"
+      }
+    },
+    {
+      "id": "opportunity_automation",
+      "type": "Opportunity",
+      "name": "Workflow Automation",
+      "properties": {
+        "potential_savings": "200K annually",
+        "approach": "Automated tracking and alerts"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "source": "start_event",
+      "target": "process_initiation",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 10 }
+    },
+    {
+      "source": "process_initiation",
+      "target": "process_site_analysis",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 10 }
+    },
+    {
+      "source": "process_site_analysis",
+      "target": "process_feasibility",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 10 }
+    },
+    {
+      "source": "process_feasibility",
+      "target": "decision_go_nogo",
+      "type": "LEADS_TO_DECISION",
+      "properties": { "weight": 10 }
+    },
+    {
+      "source": "decision_go_nogo",
+      "target": "process_interconnection_app",
+      "type": "IF_YES",
+      "properties": { "weight": 8, "condition": "approved" }
+    },
+    {
+      "source": "decision_go_nogo",
+      "target": "process_permitting",
+      "type": "IF_YES",
+      "properties": { "weight": 8, "condition": "approved" }
+    },
+    {
+      "source": "decision_go_nogo",
+      "target": "start_event",
+      "type": "IF_NO",
+      "properties": { "weight": 2, "condition": "rejected" }
+    },
+    {
+      "source": "process_permitting",
+      "target": "process_design",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 8 }
+    },
+    {
+      "source": "process_design",
+      "target": "process_procurement",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 8 }
+    },
+    {
+      "source": "process_procurement",
+      "target": "decision_ready_to_build",
+      "type": "LEADS_TO_DECISION",
+      "properties": { "weight": 8 }
+    },
+    {
+      "source": "process_interconnection_app",
+      "target": "decision_ready_to_build",
+      "type": "BLOCKS",
+      "properties": { "weight": 8, "dependency_type": "hard" }
+    },
+    {
+      "source": "decision_ready_to_build",
+      "target": "process_construction",
+      "type": "IF_YES",
+      "properties": { "weight": 7, "condition": "all_approvals_received" }
+    },
+    {
+      "source": "decision_ready_to_build",
+      "target": "process_permitting",
+      "type": "IF_NO",
+      "properties": { "weight": 1, "condition": "missing_approvals" }
+    },
+    {
+      "source": "process_construction",
+      "target": "process_commissioning",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 7 }
+    },
+    {
+      "source": "process_commissioning",
+      "target": "process_cod",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 7 }
+    },
+    {
+      "source": "process_cod",
+      "target": "end_event",
+      "type": "NEXT_STEP",
+      "properties": { "weight": 7 }
+    },
+    {
+      "source": "team_development",
+      "target": "process_initiation",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_development",
+      "target": "process_site_analysis",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_development",
+      "target": "process_permitting",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_development",
+      "target": "process_design",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_finance",
+      "target": "process_feasibility",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_interconnection",
+      "target": "process_interconnection_app",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_construction",
+      "target": "process_procurement",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_construction",
+      "target": "process_construction",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_construction",
+      "target": "process_commissioning",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "team_asset_mgmt",
+      "target": "process_cod",
+      "type": "PERFORMS_PROCESS",
+      "properties": {}
+    },
+    {
+      "source": "process_interconnection_app",
+      "target": "pain_interconnection_delays",
+      "type": "HAS_PAIN_POINT",
+      "properties": {}
+    },
+    {
+      "source": "process_permitting",
+      "target": "pain_permit_tracking",
+      "type": "HAS_PAIN_POINT",
+      "properties": {}
+    },
+    {
+      "source": "pain_interconnection_delays",
+      "target": "opportunity_automation",
+      "type": "ADDRESSES",
+      "properties": {}
+    },
+    {
+      "source": "pain_permit_tracking",
+      "target": "opportunity_automation",
+      "type": "ADDRESSES",
+      "properties": {}
+    }
+  ]
+}

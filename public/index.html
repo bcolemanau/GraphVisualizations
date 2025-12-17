@@ -65,10 +65,32 @@
                                 </div>
                             </div>
                         </label>
+                        <label class="viz-option">
+                            <input type="radio" name="vizType" value="swimlane">
+                            <div class="option-content">
+                                <span class="icon">🏊</span>
+                                <div>
+                                    <strong>Swimlane</strong>
+                                    <small>Cross-team flows</small>
+                                </div>
+                            </div>
+                        </label>
+                        <label class="viz-option">
+                            <input type="radio" name="vizType" value="sankey">
+                            <div class="option-content">
+                                <span class="icon">💧</span>
+                                <div>
+                                    <strong>Sankey Flow</strong>
+                                    <small>Process flows</small>
+                                </div>
+                            </div>
+                        </label>
                     </div>
                 </div>
 
                 <button id="visualizeBtn" class="btn-primary">Visualize</button>
+
+                <div id="filterPanel" class="filter-container"></div>
 
                 <div class="stats" id="stats"></div>
             </aside>
@@ -91,7 +113,11 @@
     <script src="chord.js"></script>
     <script src="heatmap.js"></script>
     <script src="tree.js"></script>
+    <script src="swimlane.js"></script>
+    <script src="sankey.js"></script>
+    <script src="filters.js"></script>
     <script src="app.js"></script>
 </body>
 </html>
+
 
